@@ -16,6 +16,8 @@ public class Order {
 
     private Double totalAmount;
 
+    private Double discountAmount;
+
     private String orderStatus;
 
     @ManyToOne
@@ -47,6 +49,14 @@ public class Order {
 
     public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public Double getDiscountAmount() {
+       return discountAmount;
+    }
+
+    public void setDiscountAmount(Double discountAmount) {
+       this.discountAmount = discountAmount;
     }
 
     public String getOrderStatus() {

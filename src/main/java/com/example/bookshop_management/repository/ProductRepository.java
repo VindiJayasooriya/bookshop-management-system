@@ -4,6 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.bookshop_management.entity.Product;
 
+import java.util.List;
+
 public interface ProductRepository extends JpaRepository<Product, Long> {
+    List<Product> findByProductNameContainingIgnoreCase(String productName);
+    List<Product> findByCategoryCategoryId(Long categoryId);
 
 }

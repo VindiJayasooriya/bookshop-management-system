@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.bookshop_management.entity.Customer;
+import com.example.bookshop_management.repository.CustomerRepository;
+
 import com.example.bookshop_management.entity.Order;
 import com.example.bookshop_management.repository.OrderRepository;
 
@@ -14,8 +17,40 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CustomerRepository customerRepository;
+
     public Order saveOrder(Order order) {
-        return orderRepository.save(order);
+
+      if (order.getCustomer() != null) {
+
+        Long customerId = order.getCustomer().getCustomerId();
+
+        Customer customer =
+                customerRepository.findById(customerId).orElse(null);
+
+        if (customer != null &&
+            Boolean.TRUE.equals(customer.getIsMember())) {
+
+            Double totalAmount = order.getTotalAmount();
+
+            Double discountPercentage =
+                    customer.getDiscountPercentage();
+
+            Double discountAmount =
+                    totalAmount * discountPercentage / 100;
+
+            order.setDiscountAmount(discountAmount);
+
+            order.setTotalAmount(totalAmount - discountAmount);
+        } else {
+            order.setDiscountAmount(0.0);
+      }
+
+        order.setCustomer(customer);
+    }
+
+      return orderRepository.save(order);
     }
 
     public List<Order> getAllOrders() {
@@ -38,6 +73,7 @@ public class OrderService {
 
             existingOrder.setOrderDate(order.getOrderDate());
             existingOrder.setTotalAmount(order.getTotalAmount());
+            existingOrder.setDiscountAmount(order.getDiscountAmount());
             existingOrder.setOrderStatus(order.getOrderStatus());
             existingOrder.setCustomer(order.getCustomer());
 

@@ -41,4 +41,16 @@ public class ProductController {
         productService.deleteProduct(id);
         return "Product deleted successfully";
     }
+
+    @GetMapping("/search")
+    public List<Product> searchProducts(
+        @RequestParam String name) {
+        return productService.searchProducts(name);
+    }
+
+    @GetMapping("/category/{categoryId}")
+    public List<Product> getProductsByCategory(
+        @PathVariable Long categoryId) {
+        return productService.getProductsByCategory(categoryId);
+    }
 }

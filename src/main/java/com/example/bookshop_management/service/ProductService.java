@@ -48,4 +48,12 @@ public class ProductService {
 
         return null;
     }
+
+    public List<Product> searchProducts(String productName) {
+        return productRepository.findByProductNameContainingIgnoreCase(productName);
+    }
+
+    public List<Product> getProductsByCategory(Long categoryId) {
+       return productRepository.findByCategoryCategoryId(categoryId);
+    }
 }
