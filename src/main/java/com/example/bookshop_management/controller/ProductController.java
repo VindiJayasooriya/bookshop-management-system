@@ -53,4 +53,9 @@ public class ProductController {
         @PathVariable Long categoryId) {
         return productService.getProductsByCategory(categoryId);
     }
+
+    @GetMapping("/low-stock")
+    public List<Product> getLowStockProducts() {
+        return productService.getLowStockProducts();
+    }
 }

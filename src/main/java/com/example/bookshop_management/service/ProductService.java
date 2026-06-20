@@ -56,4 +56,8 @@ public class ProductService {
     public List<Product> getProductsByCategory(Long categoryId) {
        return productRepository.findByCategoryCategoryId(categoryId);
     }
+
+    public List<Product> getLowStockProducts() {
+       return productRepository.findByStockQuantityLessThan(10);
+    }
 }
