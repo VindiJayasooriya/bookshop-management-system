@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.bookshop_management.entity.Feedback;
+import com.example.bookshop_management.exception.ResourceNotFoundException;
 import com.example.bookshop_management.repository.FeedbackRepository;
 
 @Service
@@ -23,7 +24,10 @@ public class FeedbackService {
     }
 
     public Feedback getFeedbackById(Long id) {
-        return feedbackRepository.findById(id).orElse(null);
+        return feedbackRepository.findById(id)
+           .orElseThrow(() ->
+                new ResourceNotFoundException(
+                    "Feedback not found with ID: " + id));
     }
 
     public void deleteFeedback(Long id) {

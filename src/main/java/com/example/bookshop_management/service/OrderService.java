@@ -9,6 +9,7 @@ import com.example.bookshop_management.entity.Customer;
 import com.example.bookshop_management.repository.CustomerRepository;
 
 import com.example.bookshop_management.entity.Order;
+import com.example.bookshop_management.exception.ResourceNotFoundException;
 import com.example.bookshop_management.repository.OrderRepository;
 
 @Service
@@ -58,7 +59,10 @@ public class OrderService {
     }
 
     public Order getOrderById(Long id) {
-        return orderRepository.findById(id).orElse(null);
+        return orderRepository.findById(id)
+           .orElseThrow(() ->
+                new ResourceNotFoundException(
+                    "Order not found with ID: " + id));
     }
 
     public void deleteOrder(Long id) {

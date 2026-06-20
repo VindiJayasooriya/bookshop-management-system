@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.bookshop_management.entity.Product;
 import com.example.bookshop_management.repository.ProductRepository;
 
+import com.example.bookshop_management.exception.ResourceNotFoundException;
+
 @Service
 public class ProductService {
 
@@ -23,7 +25,10 @@ public class ProductService {
     }
 
     public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
+        return productRepository.findById(id)
+            .orElseThrow(() ->
+                new ResourceNotFoundException(
+                    "Product not found with ID: " + id));
     }
 
     public void deleteProduct(Long id) {

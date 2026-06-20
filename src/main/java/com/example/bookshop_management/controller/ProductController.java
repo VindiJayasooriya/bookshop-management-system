@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.bookshop_management.entity.Product;
 import com.example.bookshop_management.service.ProductService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -16,7 +18,7 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@Valid @RequestBody Product product) {
         return productService.saveProduct(product);
     }
 

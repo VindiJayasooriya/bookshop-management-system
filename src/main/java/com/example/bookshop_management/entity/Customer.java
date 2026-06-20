@@ -4,6 +4,9 @@ import java.time.LocalDate;
 
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -11,11 +14,15 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
-
+    
+    @NotBlank(message = "First name is required")
     private String firstName;
-
+    
+    @NotBlank(message = "Last name is required")
     private String lastName;
-
+    
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email format")
     @Column(unique = true)
     private String email;
 

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.bookshop_management.entity.Feedback;
 import com.example.bookshop_management.service.FeedbackService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/feedbacks")
 public class FeedbackController {
@@ -16,7 +18,7 @@ public class FeedbackController {
     private FeedbackService feedbackService;
 
     @PostMapping
-    public Feedback addFeedback(@RequestBody Feedback feedback) {
+    public Feedback addFeedback(@Valid @RequestBody Feedback feedback) {
         return feedbackService.saveFeedback(feedback);
     }
 

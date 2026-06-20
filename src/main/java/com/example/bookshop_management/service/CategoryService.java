@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.bookshop_management.entity.Category;
+import com.example.bookshop_management.exception.ResourceNotFoundException;
 import com.example.bookshop_management.repository.CategoryRepository;
 
 @Service
@@ -23,7 +24,10 @@ public class CategoryService {
     }
 
     public Category getCategoryById(Long id) {
-       return categoryRepository.findById(id).orElse(null);
+       return categoryRepository.findById(id)
+            .orElseThrow(() ->
+                new ResourceNotFoundException(
+                    "Category not found with ID: " + id));
     }
 
     public void deleteCategory(Long id) {

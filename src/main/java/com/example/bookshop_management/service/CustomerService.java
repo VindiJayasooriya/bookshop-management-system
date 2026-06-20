@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.bookshop_management.entity.Customer;
+import com.example.bookshop_management.exception.ResourceNotFoundException;
 import com.example.bookshop_management.repository.CustomerRepository;
 
 @Service
@@ -23,7 +24,10 @@ public class CustomerService {
     }
 
     public Customer getCustomerById(Long id) {
-        return customerRepository.findById(id).orElse(null);
+        return customerRepository.findById(id)
+           .orElseThrow(() ->
+                new ResourceNotFoundException(
+                    "Customer not found with ID: " + id));
     }
 
     public void deleteCustomer(Long id) {

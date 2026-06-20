@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.bookshop_management.entity.Payment;
 import com.example.bookshop_management.service.PaymentService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/payments")
 public class PaymentController {
@@ -16,7 +18,7 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @PostMapping
-    public Payment addPayment(@RequestBody Payment payment) {
+    public Payment addPayment(@Valid @RequestBody Payment payment) {
         return paymentService.savePayment(payment);
     }
 

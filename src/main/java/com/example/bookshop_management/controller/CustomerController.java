@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.bookshop_management.entity.Customer;
 import com.example.bookshop_management.service.CustomerService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
@@ -16,7 +18,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping
-    public Customer addCustomer(@RequestBody Customer customer) {
+    public Customer addCustomer(@Valid @RequestBody Customer customer) {
         return customerService.saveCustomer(customer);
     }
 

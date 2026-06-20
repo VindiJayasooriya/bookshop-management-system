@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.bookshop_management.entity.Category;
 import com.example.bookshop_management.service.CategoryService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -16,7 +18,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @PostMapping
-    public Category addCategory(@RequestBody Category category) {
+    public Category addCategory(@Valid @RequestBody Category category) {
         return categoryService.saveCategory(category);
     }
 
