@@ -86,4 +86,12 @@ public class OrderService {
 
         return null;
     }
+
+    public List<Order> getRecentOrders() {
+        return orderRepository.findTop5ByOrderByOrderDateDesc();
+    }
+
+    public List<Order> getOrdersByStatus(String status) {
+       return orderRepository.findByOrderStatus(status);
+    }
 }

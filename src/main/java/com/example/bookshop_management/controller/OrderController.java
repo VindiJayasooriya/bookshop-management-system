@@ -43,4 +43,15 @@ public class OrderController {
         orderService.deleteOrder(id);
         return "Order deleted successfully";
     }
+
+    @GetMapping("/recent")
+    public List<Order> getRecentOrders() {
+       return orderService.getRecentOrders();
+    }
+
+    @GetMapping("/status/{status}")
+    public List<Order> getOrdersByStatus(
+        @PathVariable String status) {
+        return orderService.getOrdersByStatus(status);
+    }
 }

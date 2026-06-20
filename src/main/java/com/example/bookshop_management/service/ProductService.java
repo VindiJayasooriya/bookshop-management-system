@@ -10,6 +10,9 @@ import com.example.bookshop_management.repository.ProductRepository;
 
 import com.example.bookshop_management.exception.ResourceNotFoundException;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 @Service
 public class ProductService {
 
@@ -64,5 +67,9 @@ public class ProductService {
 
     public List<Product> getLowStockProducts() {
        return productRepository.findByStockQuantityLessThan(10);
+    }
+
+    public Page<Product> getProducts(Pageable pageable) {
+       return productRepository.findAll(pageable);
     }
 }

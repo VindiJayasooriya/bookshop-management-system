@@ -10,6 +10,9 @@ import com.example.bookshop_management.service.ProductService;
 
 import jakarta.validation.Valid;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -59,5 +62,10 @@ public class ProductController {
     @GetMapping("/low-stock")
     public List<Product> getLowStockProducts() {
         return productService.getLowStockProducts();
+    }
+
+    @GetMapping("/page")
+    public Page<Product> getProducts(Pageable pageable) {
+       return productService.getProducts(pageable);
     }
 }
