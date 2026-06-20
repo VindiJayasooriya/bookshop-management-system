@@ -12,4 +12,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
         @Query("SELECT COALESCE(SUM(o.discountAmount), 0) FROM Order o")
         Double getTotalDiscountGiven();
+
+        long countByOrderStatus(String orderStatus);
 }

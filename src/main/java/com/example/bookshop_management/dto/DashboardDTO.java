@@ -9,6 +9,11 @@ public class DashboardDTO {
     private long totalFeedbacks;
     private Double totalSales;
     private Double totalDiscountGiven;
+    private long pendingOrders;
+    private long completedOrders;
+    private long cancelledOrders;
+    private long memberCustomers;
+    private long nonMemberCustomers;
 
     public DashboardDTO() {
     }
@@ -19,7 +24,12 @@ public class DashboardDTO {
                         long totalPayments,
                         long totalFeedbacks,
                         Double totalSales,
-                        Double totalDiscountGiven) {
+                        Double totalDiscountGiven,
+                        long pendingOrders,
+                        long completeOrders,
+                        long cancelledOrders,
+                        long memberCustomers,
+                        long nonMemberCustomers) {
 
         this.totalCustomers = totalCustomers;
         this.totalProducts = totalProducts;
@@ -28,6 +38,11 @@ public class DashboardDTO {
         this.totalFeedbacks = totalFeedbacks;
         this.totalSales = totalSales;
         this.totalDiscountGiven = totalDiscountGiven;
+        this.pendingOrders = pendingOrders;
+        this.completedOrders = completeOrders;
+        this.cancelledOrders = cancelledOrders;
+        this.memberCustomers = memberCustomers;
+        this.nonMemberCustomers = nonMemberCustomers;
     }
 
     public long getTotalCustomers() {
@@ -85,4 +100,46 @@ public class DashboardDTO {
     public void setTotalDiscountGiven(Double totalDiscountGiven) {
         this.totalDiscountGiven = totalDiscountGiven;
     }
+
+    public long getPendingOrders() {
+        return pendingOrders;
+    }
+
+    public void setPendingOrders(long pendingOrders) {
+        this.pendingOrders = pendingOrders;
+    }
+
+    public long getCompletedOrders() {
+        return completedOrders;
+    }
+
+    public void setCompletedOrders(long completedOrders) {
+        this.completedOrders = completedOrders;
+    }
+
+    public long getCancelledOrders() {
+        return cancelledOrders;
+    }
+
+    public void setCancelledOrders(long cancelledOrders) {
+        this.cancelledOrders = cancelledOrders;
+    }
+
+    public long getMemberCustomers() {
+        return memberCustomers;
+    }
+
+    public void setMemberCustomers(long memberCustomers) {
+        this.memberCustomers = memberCustomers;
+    }
+    
+    public long getNonMemberCustomers() {
+        return nonMemberCustomers;
+    }
+
+    public void setNonMemberCustomers(long nonMemberCustomers) {
+        this.nonMemberCustomers = nonMemberCustomers;
+    }
+
+    
 }

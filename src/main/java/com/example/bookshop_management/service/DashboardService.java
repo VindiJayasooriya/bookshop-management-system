@@ -37,7 +37,12 @@ public class DashboardService {
                 paymentRepository.count(),
                 feedbackRepository.count(),
                 orderRepository.getTotalSales(),
-                orderRepository.getTotalDiscountGiven()
+                orderRepository.getTotalDiscountGiven(),
+                orderRepository.countByOrderStatus("PENDING"),
+                orderRepository.countByOrderStatus("COMPLETED"),
+                orderRepository.countByOrderStatus("CANCELLED"),
+                customerRepository.countByIsMember(true),
+                customerRepository.countByIsMember(false)
         );
     }
 }
