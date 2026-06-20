@@ -9,4 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface OrderRepository extends JpaRepository<Order, Long> {
         @Query("SELECT COALESCE(SUM(o.totalAmount), 0) FROM Order o")
         Double getTotalSales();
+
+        @Query("SELECT COALESCE(SUM(o.discountAmount), 0) FROM Order o")
+        Double getTotalDiscountGiven();
 }

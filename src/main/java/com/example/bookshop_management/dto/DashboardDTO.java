@@ -8,6 +8,7 @@ public class DashboardDTO {
     private long totalPayments;
     private long totalFeedbacks;
     private Double totalSales;
+    private Double totalDiscountGiven;
 
     public DashboardDTO() {
     }
@@ -17,7 +18,8 @@ public class DashboardDTO {
                         long totalOrders,
                         long totalPayments,
                         long totalFeedbacks,
-                        Double totalSales) {
+                        Double totalSales,
+                        Double totalDiscountGiven) {
 
         this.totalCustomers = totalCustomers;
         this.totalProducts = totalProducts;
@@ -25,6 +27,7 @@ public class DashboardDTO {
         this.totalPayments = totalPayments;
         this.totalFeedbacks = totalFeedbacks;
         this.totalSales = totalSales;
+        this.totalDiscountGiven = totalDiscountGiven;
     }
 
     public long getTotalCustomers() {
@@ -73,5 +76,13 @@ public class DashboardDTO {
 
     public void setTotalSales(Double totalSales) {
         this.totalSales = totalSales;
+    }
+
+    public Double getTotalDiscountGiven() {
+        return totalDiscountGiven;
+    }
+
+    public void setTotalDiscountGiven(Double totalDiscountGiven) {
+        this.totalDiscountGiven = totalDiscountGiven;
     }
 }

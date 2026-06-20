@@ -36,7 +36,8 @@ public class DashboardService {
                 orderRepository.count(),
                 paymentRepository.count(),
                 feedbackRepository.count(),
-                orderRepository.getTotalSales()
+                orderRepository.getTotalSales(),
+                orderRepository.getTotalDiscountGiven()
         );
     }
 }
