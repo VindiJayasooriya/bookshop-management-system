@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - JAYA Bookshop</title>
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/checkout.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-brand">JAYA <span>Bookshop</span></a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html" class="cart-link">🛒 Cart <span class="cart-badge" id="cartBadge">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Checkout</h1>
+
+        <div class="checkout-layout">
+            <div class="checkout-form card">
+                <h3>Customer Details</h3>
+                <p class="member-notice" id="memberNotice" style="display:none">
+                    ✓ Logged in as member — your details are pre-filled and 5% discount will be applied.
+                </p>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea id="address" rows="3" required></textarea>
+                </div>
+            </div>
+
+            <div class="checkout-summary card">
+                <h3>Order Summary</h3>
+                <div id="checkoutItems"></div>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="checkoutSubtotal">Rs. 0.00</span>
+                </div>
+                <div class="summary-row discount-row" id="checkoutDiscountRow" style="display:none">
+                    <span>Member Discount</span>
+                    <span id="checkoutDiscount">- Rs. 0.00</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="checkoutTotal">Rs. 0.00</span>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="placeOrder()">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/validation.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+.confirmation-card {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 40px;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--success);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 20px;
+}
+
+.confirmation-card h1 {
+    color: var(--secondary);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.confirm-subtitle {
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.order-details {
+    text-align: left;
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row .label {
+    color: var(--text-light);
+}
+
+.detail-row .value {
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.order-items-list {
+    margin-top: 12px;
+}
+
+.order-items-list h4 {
+    font-size: 14px;
+    color: var(--secondary);
+    margin-bottom: 8px;
+}
+
+.order-item-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+    color: var(--text);
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - JAYA Bookshop</title>
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/order-confirmation.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-brand">JAYA <span>Bookshop</span></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="confirmation-card card" id="confirmationContent">
+            <div class="success-icon">✓</div>
+            <h1>Order Placed Successfully!</h1>
+            <p class="confirm-subtitle">Review your order details below</p>
+
+            <div class="order-details" id="orderDetails"></div>
+
+            <div class="confirm-actions">
+                <button class="btn btn-primary" onclick="proceedToPayment()">Confirm & Proceed to Payment</button>
+                <a href="home.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/validation.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/order-confirmation.js"></script>
+</body>
+</html>

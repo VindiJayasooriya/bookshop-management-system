@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - JAYA Bookshop</title>
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/shop.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-brand">JAYA <span>Bookshop</span></a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="customer-orders.html">My Orders</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><span class="member-greeting" id="memberName"></span></li>
+                <li><a href="login.html" id="loginLink">Login</a></li>
+                <li><a href="register.html" id="registerLink">Register</a></li>
+                <li><span class="logout-link" id="logoutBtn">Logout</span></li>
+                <li><a href="cart.html" class="cart-link">🛒 Cart <span class="cart-badge" id="cartBadge">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Our Products</h1>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button class="btn btn-primary" onclick="searchProducts()">Search</button>
+            <button class="btn btn-outline" onclick="loadProducts()">Show All</button>
+        </div>
+
+        <div class="category-filters" id="categoryFilters"></div>
+
+        <div class="product-grid" id="productContainer"></div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 JAYA Bookshop & Student Supplies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/validation.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/shop.js"></script>
+</body>
+</html>

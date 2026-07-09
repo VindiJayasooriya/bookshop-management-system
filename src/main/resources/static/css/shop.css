@@ -1,0 +1,8 @@
+.shop-banner {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--white);
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 24px;
+    text-align: center;
+}

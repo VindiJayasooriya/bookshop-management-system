@@ -1,0 +1,84 @@
+.lookup-form {
+    max-width: 560px;
+    margin-bottom: 24px;
+}
+
+.lookup-row {
+    display: flex;
+    gap: 12px;
+}
+
+.lookup-row input {
+    flex: 1;
+}
+
+.order-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 16px;
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.order-card-header h3 {
+    color: var(--secondary);
+    font-size: 18px;
+}
+
+.order-card-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.order-detail {
+    font-size: 14px;
+}
+
+.order-detail .label {
+    color: var(--text-light);
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.order-detail .value {
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.order-items-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.order-items-section h4 {
+    font-size: 14px;
+    color: var(--secondary);
+    margin-bottom: 8px;
+}
+
+.order-item-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .lookup-row {
+        flex-direction: column;
+    }
+}

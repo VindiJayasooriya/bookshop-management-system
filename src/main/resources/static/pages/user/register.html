@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - JAYA Bookshop</title>
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/auth.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="home.html" class="nav-brand">JAYA <span>Bookshop</span></a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card card">
+            <h2>Become a Member</h2>
+            <p class="auth-subtitle">Register now and get 5% discount on every purchase!</p>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" id="firstName">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="email">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password">
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" id="phoneNumber">
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <textarea id="address" rows="2"></textarea>
+            </div>
+
+            <button class="btn btn-primary btn-block" onclick="register()">Register</button>
+
+            <p class="auth-footer">
+                Already a member? <a href="login.html">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/validation.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/register.js"></script>
+</body>
+</html>
