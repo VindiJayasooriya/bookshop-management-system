@@ -94,4 +94,8 @@ public class OrderService {
     public List<Order> getOrdersByStatus(String status) {
        return orderRepository.findByOrderStatus(status);
     }
+
+    public List<Order> getOrdersByCustomer(Long customerId) {
+      return orderRepository.findByCustomerCustomerId(customerId);
+    }
 }

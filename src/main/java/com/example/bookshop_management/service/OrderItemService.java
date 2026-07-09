@@ -14,6 +14,10 @@ public class OrderItemService {
     @Autowired
     private OrderItemRepository orderItemRepository;
 
+    public List<OrderItem> getOrderItemsByOrderId(Long orderId) {
+        return orderItemRepository.findByOrderOrderId(orderId);
+    }
+
     public OrderItem saveOrderItem(OrderItem orderItem) {
         return orderItemRepository.save(orderItem);
     }

@@ -17,6 +17,11 @@ public class OrderItemController {
     @Autowired
     private OrderItemService orderItemService;
 
+    @GetMapping("/order/{orderId}")
+    public List<OrderItem> getOrderItemsByOrderId(@PathVariable Long orderId) {
+        return orderItemService.getOrderItemsByOrderId(orderId);
+    }
+
     @PostMapping
     public OrderItem addOrderItem(@Valid @RequestBody OrderItem orderItem) {
         return orderItemService.saveOrderItem(orderItem);
