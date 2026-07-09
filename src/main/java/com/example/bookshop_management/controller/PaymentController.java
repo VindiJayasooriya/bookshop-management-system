@@ -17,6 +17,11 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
+    @GetMapping("/order/{orderId}")
+    public Payment getPaymentByOrderId(@PathVariable Long orderId) {
+        return paymentService.getPaymentByOrderId(orderId);
+    }
+
     @PostMapping
     public Payment addPayment(@Valid @RequestBody Payment payment) {
         return paymentService.savePayment(payment);

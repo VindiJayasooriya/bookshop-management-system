@@ -15,6 +15,11 @@ public class PaymentService {
     @Autowired
     private PaymentRepository paymentRepository;
 
+    public Payment getPaymentByOrderId(Long orderId) {
+        return paymentRepository.findByOrderOrderId(orderId)
+                .orElse(null);
+    }
+
     public Payment savePayment(Payment payment) {
         return paymentRepository.save(payment);
     }
