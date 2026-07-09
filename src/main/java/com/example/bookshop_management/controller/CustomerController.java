@@ -43,4 +43,15 @@ public class CustomerController {
         customerService.deleteCustomer(id);
         return "Customer deleted successfully";
     }
+
+    @GetMapping("/email/{email}")
+    public Customer getCustomerByEmail(
+        @PathVariable String email) {
+        Customer customer = customerService.getCustomerByEmail(email);
+        if (customer == null) {
+            throw new com.example.bookshop_management.exception.ResourceNotFoundException(
+                    "Customer not found with email: " + email);
+        }
+        return customer;
+    }
 }

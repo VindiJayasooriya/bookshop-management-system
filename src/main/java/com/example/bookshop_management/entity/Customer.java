@@ -2,6 +2,8 @@ package com.example.bookshop_management.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Email;
@@ -30,11 +32,18 @@ public class Customer {
 
     private String address;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
+
     private Boolean isMember;
 
     private Double discountPercentage;
 
     private LocalDate createdAt;
+    @PrePersist
+    public void prePersist() {
+    this.createdAt = LocalDate.now();
+}
 
     // Default Constructor
     public Customer() {
@@ -88,6 +97,14 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Boolean getIsMember() {

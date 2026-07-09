@@ -49,11 +49,19 @@ public class CustomerService {
             existingCustomer.setIsMember(customer.getIsMember());
             existingCustomer.setDiscountPercentage(
                     customer.getDiscountPercentage());
-            existingCustomer.setCreatedAt(customer.getCreatedAt());
+
+            if (customer.getPassword() != null
+                    && !customer.getPassword().isEmpty()) {
+                existingCustomer.setPassword(customer.getPassword());
+            }
 
             return customerRepository.save(existingCustomer);
         }
 
         return null;
+    }
+
+    public Customer getCustomerByEmail(String email) {
+        return customerRepository.findByEmail(email);
     }
 }
