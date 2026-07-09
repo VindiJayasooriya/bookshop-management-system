@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Bookshop Admin</title>
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/admin-sidebar.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">Bookshop Admin<span>Management System</span></div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="products.html">📦 Products</a></li>
+                <li><a href="customers.html">👥 Customers</a></li>
+                <li><a href="orders.html">📋 Orders</a></li>
+                <li><a href="payments.html">💳 Payments</a></li>
+                <li><a href="feedback.html" class="active">⭐ Feedback</a></li>
+                <li><a href="../user/home.html">🏪 View Store</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <div class="admin-header"><h1>Feedback Management</h1></div>
+
+            <table class="admin-table" id="feedbackTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Rating</th>
+                        <th>Comment</th>
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/validation.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/feedback.js"></script>
+</body>
+</html>

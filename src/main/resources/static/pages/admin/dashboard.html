@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Bookshop Admin</title>
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/admin-sidebar.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                Bookshop Admin
+                <span>Management System</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html" class="active">📊 Dashboard</a></li>
+                <li><a href="products.html">📦 Products</a></li>
+                <li><a href="customers.html">👥 Customers</a></li>
+                <li><a href="orders.html">📋 Orders</a></li>
+                <li><a href="payments.html">💳 Payments</a></li>
+                <li><a href="feedback.html">⭐ Feedback</a></li>
+                <li><a href="../user/home.html">🏪 View Store</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <h3>Total Products</h3>
+                    <div class="stat-value" id="products">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Customers</h3>
+                    <div class="stat-value" id="customers">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Members</h3>
+                    <div class="stat-value" id="members">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <div class="stat-value" id="orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Orders</h3>
+                    <div class="stat-value" id="pendingOrders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Completed Orders</h3>
+                    <div class="stat-value" id="completedOrders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Sales</h3>
+                    <div class="stat-value" id="sales">Rs. 0</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/validation.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/dashboard.js"></script>
+</body>
+</html>

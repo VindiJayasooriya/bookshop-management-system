@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers - Bookshop Admin</title>
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/admin-sidebar.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">Bookshop Admin<span>Management System</span></div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="products.html">📦 Products</a></li>
+                <li><a href="customers.html" class="active">👥 Customers</a></li>
+                <li><a href="orders.html">📋 Orders</a></li>
+                <li><a href="payments.html">💳 Payments</a></li>
+                <li><a href="feedback.html">⭐ Feedback</a></li>
+                <li><a href="../user/home.html">🏪 View Store</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <div class="admin-header"><h1>Customer Management</h1></div>
+
+            <div class="edit-panel" id="editPanel">
+                <h3>Edit Customer</h3>
+                <input type="hidden" id="customerId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" id="firstName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" id="lastName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" id="phoneNumber" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Member Status</label>
+                        <select id="isMember">
+                            <option value="true">Member</option>
+                            <option value="false">Non Member</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Discount %</label>
+                        <input type="number" id="discountPercentage" step="0.1">
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="updateCustomer()">Update</button>
+                <button class="btn btn-outline" onclick="closeEditPanel()" style="margin-left:8px">Cancel</button>
+            </div>
+
+            <table class="admin-table" id="customerTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Member</th>
+                        <th>Discount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/validation.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/customers.js"></script>
+</body>
+</html>
