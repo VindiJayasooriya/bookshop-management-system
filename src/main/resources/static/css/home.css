@@ -2,40 +2,277 @@ body {
     background: var(--bg);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   HERO SLIDER — only this block was changed
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Outer container ─────────────────────────────────────────── */
 .hero {
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(245, 114, 36, 0.75)),
-                url('../../images/spring-book.jpg') center/cover no-repeat;
-    min-height: 420px;
+    position: relative;
+    width: 100%;
+    height: 92vh;
+    min-height: 500px;
+    max-height: 720px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: var(--white);
-    padding: 60px 20px;
+    color: #fff;
 }
 
+/* ── Slide layer ─────────────────────────────────────────────── */
+.hero-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.3s ease-in-out;
+    will-change: opacity;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* ── Dark gradient overlay ───────────────────────────────────── */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        160deg,
+        rgba(15, 15, 35, 0.75) 0%,
+        rgba(20, 20, 45, 0.60) 45%,
+        rgba(245, 114, 36, 0.28) 100%
+    );
+    pointer-events: none;
+}
+
+/* ── Hero text content ───────────────────────────────────────── */
 .hero-content {
-    max-width: 700px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 28px;
 }
 
-.hero h1 {
-    font-size: 42px;
+/* Small badge above heading */
+.hero-badge {
+    display: inline-block;
+    background: rgba(245, 114, 36, 0.22);
+    border: 1px solid rgba(245, 114, 36, 0.55);
+    color: #ffd6b0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(4px);
+}
+
+.hero-content h1 {
+    font-size: 48px;
     font-weight: 800;
-    margin-bottom: 16px;
-    line-height: 1.2;
+    line-height: 1.18;
+    margin-bottom: 18px;
+    text-shadow: 0 3px 16px rgba(0, 0, 0, 0.45);
+    letter-spacing: -0.5px;
 }
 
-.hero p {
+.hero-content p {
     font-size: 18px;
-    opacity: 0.95;
-    margin-bottom: 28px;
-    line-height: 1.6;
+    line-height: 1.72;
+    margin-bottom: 36px;
+    opacity: 0.93;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.hero-btn {
-    padding: 14px 40px;
-    font-size: 16px;
+.hero-content p strong {
+    color: #ffa040;
+    font-weight: 700;
 }
+
+/* ── Text entry animations ───────────────────────────────────── */
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes heroFadeUpSub {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 0.93; transform: translateY(0); }
+}
+@keyframes heroFadeUpBtn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+.hero-content.animate .hero-badge {
+    animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-content.animate h1 {
+    animation: heroFadeUp 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+.hero-content.animate p {
+    animation: heroFadeUpSub 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.26s both;
+}
+.hero-content.animate .hero-cta-group {
+    animation: heroFadeUpBtn 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.40s both;
+}
+
+/* ── CTA button group ────────────────────────────────────────── */
+.hero-cta-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Primary pill button */
+.hero-btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 15px 44px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50px;
+    border: none;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 22px rgba(245, 114, 36, 0.48);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hero-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 10px 34px rgba(245, 114, 36, 0.62);
+}
+
+/* Gentle glow pulse (pauses on hover) */
+@keyframes heroBtnGlow {
+    0%,  100% { box-shadow: 0 4px 22px rgba(245, 114, 36, 0.48); }
+    50%        { box-shadow: 0 4px 38px rgba(245, 114, 36, 0.78),
+                             0 0 0 7px rgba(245, 114, 36, 0.10); }
+}
+.hero-btn {
+    animation: heroBtnGlow 3.8s ease-in-out infinite;
+}
+.hero-btn:hover {
+    animation: none;
+}
+
+/* Secondary outline button */
+.hero-btn-outline {
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+    padding: 15px 38px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(6px);
+    transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+.hero-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+/* ── Dot indicators ──────────────────────────────────────────── */
+.hero-dots {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.40);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.35s, width 0.35s, border-radius 0.35s;
+    outline: none;
+}
+.hero-dot:focus-visible {
+    outline: 2px solid rgba(255,255,255,0.8);
+    outline-offset: 3px;
+}
+.hero-dot.active {
+    background: var(--primary);
+    width: 30px;
+    border-radius: 5px;
+}
+
+/* ── Scroll-down chevron ─────────────────────────────────────── */
+@keyframes heroChevronBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.75; }
+    50%       { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 68px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    animation: heroChevronBounce 2s ease-in-out infinite;
+    transition: color 0.2s;
+}
+.hero-scroll-hint:hover { color: #fff; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .hero {
+        height: 85vh;
+        min-height: 430px;
+        max-height: 580px;
+    }
+    .hero-content h1 { font-size: 28px; }
+    .hero-content p  { font-size: 15px; margin-bottom: 28px; }
+    .hero-btn, .hero-btn-outline { padding: 13px 28px; font-size: 15px; }
+    .hero-br { display: none; }
+    .hero-scroll-hint { display: none; }
+}
+@media (max-width: 480px) {
+    .hero { min-height: 380px; }
+    .hero-content h1 { font-size: 23px; }
+    .hero-cta-group  { flex-direction: column; align-items: center; gap: 12px; }
+    .hero-dots       { bottom: 16px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   END HERO BLOCK — everything below is unchanged
+   ═══════════════════════════════════════════════════════════════ */
 
 .section-title {
     font-size: 24px;
